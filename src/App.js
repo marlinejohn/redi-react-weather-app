@@ -5,12 +5,13 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Weather />
+        <Weather defaultCity="Berlin" />
 
         <footer>
           <a
             href="https://github.com/marlinejohn/redi-react-weather-app"
             target="_blank"
+            rel="noreferrer"
           >
             Open-source code
           </a>{" "}
