@@ -1,5 +1,6 @@
 import "./Weather.css";
 import { useState } from "react";
+import FormattedDate from "./FormattedDate";
 
 const Weather = (props) => {
   const [city, setCity] = useState(props.defaultCity);
@@ -10,8 +11,8 @@ const Weather = (props) => {
       loaded: true,
       coordinates: response.coord,
       city: response.name,
-      // date: new Date(response.dt * 1000),
-      date: "Monday 04:00",
+      date: new Date(response.dt * 1000),
+      // date: "Monday 04:00",
       description: response.weather[0].description,
       icon: response.weather[0].icon,
       temperature: response.main.temp,
@@ -62,7 +63,9 @@ const Weather = (props) => {
         </form>
         <h1>{city}</h1>
         <ul>
-          <li>{weatherData.date}</li>
+          <li>
+            <FormattedDate date={weatherData.date} />
+          </li>
           <li className="text-capitalize">{weatherData.description}</li>
         </ul>
         <div className="row mt-3">
