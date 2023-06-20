@@ -1,6 +1,7 @@
 import "./Weather.css";
 import { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 const Weather = (props) => {
   const [city, setCity] = useState(props.defaultCity);
@@ -13,7 +14,7 @@ const Weather = (props) => {
       city: response.name,
       date: new Date(response.dt * 1000),
       description: response.weather[0].description,
-      iconUrl: `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`,
+      icon: response.weather[0].icon,
       temperature: response.main.temp,
       humidity: response.main.humidity,
       wind: response.wind.speed,
@@ -34,7 +35,6 @@ const Weather = (props) => {
   };
   const HandleCityChange = (event) => {
     setCity(event.target.value);
-    console.log("Jessie ki city: ", city);
   };
 
   if (weatherData.loaded) {
@@ -61,6 +61,7 @@ const Weather = (props) => {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
+        <WeatherForecast />
       </div>
     );
   } else {
