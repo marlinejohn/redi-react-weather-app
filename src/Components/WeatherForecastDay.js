@@ -25,7 +25,7 @@ const WeatherForecastDay = (props) => {
       <div className="WeatherForecast-day">{Day()}</div>
       <WeatherIcon code={props.data.weather[0].icon} size={36} />
       <div className="WeatherForecast-temperatures">
-        <span className="WeatherForecast-max">{MaxTemprature()}</span>
+        <span className="WeatherForecast-max">{MaxTemprature()}/</span>
         <span className="WeatherForecast-min">{MinTemprature()}</span>
       </div>
     </div>
