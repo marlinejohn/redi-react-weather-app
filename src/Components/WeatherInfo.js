@@ -5,7 +5,7 @@ import WeatherIcon from "./WeatherIcon";
 
 const WeatherInfo = (props) => {
   return (
-    <div>
+    <div className="mb-5 ">
       <h1>{props.data.city}</h1>
       <ul>
         <li>
@@ -15,12 +15,12 @@ const WeatherInfo = (props) => {
       </ul>
       <div className="row mt-3">
         <div className="col-6">
-          <div className="clearfix ">
-            <div className="float-left">
-              <WeatherIcon code={props.data.icon} size={52} />
+          <div className="d-flex">
+            <div>
+              <WeatherIcon code={props.data.icon} size={48} />
             </div>
 
-            <div className="float-left">
+            <div>
               <WeatherTemperature celsius={props.data.temperature} />
             </div>
           </div>
